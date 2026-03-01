@@ -90,11 +90,19 @@ export function Projects() {
               <Card hover className="h-full flex flex-col group">
                 <div className="relative aspect-video bg-background-tertiary rounded-lg mb-4 overflow-hidden">
                   <Link href={`/projects/${project.id}`} className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center">
-                      <span className="text-4xl font-bold text-white/20">
-                        {project.title.charAt(0)}
-                      </span>
-                    </div>
+                    {project.image ? (
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center">
+                        <span className="text-4xl font-bold text-white/20">
+                          {project.title.charAt(0)}
+                        </span>
+                      </div>
+                    )}
                   </Link>
                   {project.featured && (
                     <div className="absolute top-2 right-2">

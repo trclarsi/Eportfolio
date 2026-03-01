@@ -49,12 +49,27 @@ export function Contact() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    console.log("Form data:", data);
-    toast.success("Message envoyé avec succès !");
-    reset();
-    setIsSubmitting(false);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'envoi");
+      }
+
+      toast.success("Message envoyé avec succès !");
+      reset();
+    } catch (error) {
+      toast.error("Erreur lors de l'envoi. Veuillez réessayer.");
+      console.error("Erreur:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
