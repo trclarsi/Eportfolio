@@ -14,17 +14,16 @@ export async function POST(request: Request) {
 
     const apiKey = process.env.RESEND_API_KEY;
 
-    console.log("API Key présente:", !!apiKey);
-    console.log("API Key (masked):", apiKey ? apiKey.slice(0, 10) + "..." : "non");
-
     if (!apiKey) {
-      console.log("Email (sans envoi - API key manquante):", { name, email, subject, message });
+      console.log("API key MANQUANTE sur le serveur");
       return NextResponse.json({ 
         success: true, 
-        message: "Message reçu (API key non configurée)",
-        preview: { name, email, subject, message }
+        message: "Message reçu",
+        debug: { apiKeyConfigured: false }
       });
     }
+
+    console.log("API key trouvée, envoi en cours...");
 
     const { Resend } = await import("resend");
     const resend = new Resend(apiKey);
@@ -55,11 +54,12 @@ export async function POST(request: Request) {
       `,
     });
 
-    return NextResponse.json({ success: true, data });
+    console.log("Email envoyé avec succès:", data);
+    return NextResponse.json({ success: true, data, debug: { apiKeyConfigured: true } });
   } catch (error) {
     console.error("Erreur d'envoi d'email:", error);
     return NextResponse.json(
-      { error: "Erreur lors de l'envoi du message" },
+      { error: "Erreur lors de l'envoi du message", details: String(error) },
       { status: 500 }
     );
   }
