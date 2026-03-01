@@ -14,6 +14,9 @@ export async function POST(request: Request) {
 
     const apiKey = process.env.RESEND_API_KEY;
 
+    console.log("API Key présente:", !!apiKey);
+    console.log("API Key (masked):", apiKey ? apiKey.slice(0, 10) + "..." : "non");
+
     if (!apiKey) {
       console.log("Email (sans envoi - API key manquante):", { name, email, subject, message });
       return NextResponse.json({ 
