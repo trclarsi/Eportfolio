@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
+import { Toaster } from "react-hot-toast";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -72,7 +75,19 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <Navbar />
         {children}
+        <Footer />
+        <Toaster 
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: 'var(--color-background-secondary)',
+              color: 'var(--color-foreground)',
+              border: '1px solid var(--color-white/10)',
+            },
+          }}
+        />
       </body>
     </html>
   );

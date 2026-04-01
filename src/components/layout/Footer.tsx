@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowUp, Heart } from "lucide-react";
 import { personalInfo, navLinks } from "@/data/portfolio";
@@ -16,17 +17,13 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-12">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2">
-            <a
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToTop();
-              }}
+            <Link
+              href="/"
               className="text-2xl font-bold font-[var(--font-outfit)] inline-block mb-4"
             >
               <span className="text-accent">C</span>
               <span className="text-foreground">TL</span>
-            </a>
+            </Link>
             <p className="text-foreground-secondary mb-4 max-w-sm">
               {personalInfo.title} basé à {personalInfo.location}.
               Passionné par la transformation des données en solutions innovantes.
@@ -62,12 +59,12 @@ export function Footer() {
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-foreground-secondary hover:text-accent transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
