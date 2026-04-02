@@ -1,42 +1,22 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
-import { useInView, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Lightbulb, Users, ArrowRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { skills } from "@/data/portfolio";
+import { skills, techStack } from "@/data/portfolio";
 
 const softSkillIcons: Record<string, React.ElementType> = {
   Lightbulb,
   Users,
 };
 
-function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  return (
-    <div ref={ref} className="mb-3">
-      <div className="flex justify-between mb-1">
-        <span className="text-sm font-medium">{name}</span>
-        <span className="text-xs text-foreground-secondary">{level}%</span>
-      </div>
-      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={isInView ? { width: `${level}%` } : { width: 0 }}
-          transition={{ duration: 0.8, delay, ease: "easeOut" }}
-          className="h-full bg-gradient-to-r from-accent to-accent-secondary rounded-full"
-        />
-      </div>
-    </div>
-  );
-}
-
 export function Skills() {
+  const allTechs = [...techStack.bigData, ...techStack.aiMl, ...techStack.programming, ...techStack.tools];
+  const topTechs = allTechs.slice(0, 8);
+
   return (
     <Section id="skills">
       <motion.div
@@ -64,17 +44,23 @@ export function Skills() {
         >
           <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
             <span className="w-2 h-6 bg-accent rounded-full" />
-            Techniques
+            Technologies
           </h3>
           <Card>
-            {skills.technical.slice(0, 5).map((skill, index) => (
-              <SkillBar
-                key={skill.name}
-                name={skill.name}
-                level={skill.level}
-                delay={index * 0.1}
-              />
-            ))}
+            <div className="flex flex-wrap gap-2">
+              {topTechs.map((tech, index) => (
+                <motion.span
+                  key={tech.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="px-3 py-1.5 bg-accent/10 text-accent rounded-full text-sm"
+                >
+                  {tech.name}
+                </motion.span>
+              ))}
+            </div>
           </Card>
         </motion.div>
 
