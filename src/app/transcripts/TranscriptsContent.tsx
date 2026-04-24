@@ -83,7 +83,7 @@ export function TranscriptsContent() {
           <h1 className="text-4xl md:text-5xl font-bold font-[var(--font-outfit)] mb-4">
             Mes{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-secondary">
-              Transcripts
+              Relevés de notes
             </span>
           </h1>
           <p className="text-foreground-secondary text-lg max-w-2xl mx-auto">

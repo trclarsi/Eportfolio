@@ -1,0 +1,73 @@
+[
+  {
+    "title": "Data Engineering",
+    "description": "Conception et développement de pipelines de données robustes et scalables. Architectures Big Data pour le traitement de volumes massifs, optimisation des flux de données et mise en place de Data Warehouses performants.",
+    "icon": "Database",
+    "deliverables": [
+      "Architecture de données scalable",
+      "Pipeline ETL/ELT",
+      "Data Warehouse / Data Lake modélisation",
+      "Monitoring & alerting des flux",
+      "Documentation technique"
+    ]
+  },
+  {
+    "title": "Ingénieur IA",
+    "description": "Développement de solutions d'intelligence artificielle avancées. Computer Vision, NLP, Deep Learning et modèles génératifs pour transformer vos processus.",
+    "icon": "Brain",
+    "deliverables": [
+      " Modèles Computer Vision (détection, segmentation, classification)",
+      "Modèles NLP & Chatbots",
+      "Modèles Deep Learning",
+      "Fine-tuning LLMs & RAG",
+      "Évaluation & benchmark modèle"
+    ]
+  },
+  {
+    "title": "Data Science",
+    "description": "Extraction d'insights actionnables à partir de vos données. Analyse exploratoire, modélisation statistique et développement de modèles ML pour résoudre des problèmes métier concrets.",
+    "icon": "Brain",
+    "deliverables": [
+      " Analyse exploratoire (EDA) complète",
+      "Modèles ML optimisés & validés",
+      "Tableaux de bord analytiques",
+      "Rapport d'insights & recommandations",
+      " Industrialisation du modèle (API)"
+    ]
+  },
+  {
+    "title": "Conseil Data, IA & Transformation Digitale",
+    "description": "Issu d'une formation ingénieur IA & Big Data, je propose un accompagnement opérationnel sur l'identification des cas d'usage IA, le diagnostic de vos données et la définition d'une feuille de route adaptée à votre maturité.",
+    "icon": "BarChart3",
+    "deliverables": [
+      "Audit de maturité data",
+      " Cartographie des données disponibles",
+      "Identification use cases IA (quick wins)",
+      "Recommandations"
+    ]
+  },
+  {
+    "title": "Ingénieur généraliste des systèmes industriels",
+    "description": "Application des méthodes d'ingénierie industrielle pour optimiser vos processus. Analyse des risques, amélioration continue et optimisation de la production.",
+    "icon": "Code",
+    "deliverables": [
+      " Analyse AMDEC / FMECA complète",
+      "Méthodologie Six Sigma (DMAIC)",
+      "Analyse Pareto & Ishikawa",
+      " Cartographie des processus",
+      "Indicateurs KPI production"
+    ]
+  },
+  {
+    "title": "Développement Logiciel",
+    "description": "Développement d'applications web robustes et performantes. Solutions full-stack avec architecture modulaire.",
+    "icon": "Code",
+    "deliverables": [
+      "Application web complète (front + back)",
+      "API REST / gRPC sécurisée",
+      "Architecture microservices",
+      "Base de données",
+      "CI/CD & déploiement"
+    ]
+  }
+]

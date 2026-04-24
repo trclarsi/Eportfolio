@@ -1,0 +1,196 @@
+{
+  "resume": [
+    {
+      "name": "Python",
+      "image": "/images/tech-logos/python.webp"
+    },
+    {
+      "name": "Generative AI",
+      "image": "/images/tech-logos/argentic ai.svg"
+    },
+    {
+      "name": "Computer Vision",
+      "image": "/images/tech-logos/computer vision.jpg"
+    },
+    {
+      "name": "NLP",
+      "image": "/images/tech-logos/nlp_logo.png"
+    },
+    {
+      "name": "PostgreSQL",
+      "image": "/images/tech-logos/postgresql.png"
+    },
+    {
+      "name": "Oracle Cloud",
+      "image": "/images/tech-logos/oracle cloud.png"
+    },
+    {
+      "name": "MATLAB",
+      "image": "/images/tech-logos/matlab.svg"
+    },
+    {
+      "name": "CATIA V5",
+      "image": "/images/tech-logos/catia.webp"
+    },
+    {
+      "name": "Excel",
+      "image": "/images/tech-logos/Microsoft_Office_Excel_(2019–present).svg.png"
+    },
+    {
+      "name": "Power BI",
+      "image": "/images/tech-logos/powerbi.webp"
+    }
+  ],
+  "bigData": [
+    {
+      "name": "Hadoop",
+      "image": "/images/tech-logos/hadoop.svg"
+    },
+    {
+      "name": "Spark",
+      "image": "/images/tech-logos/spark.png"
+    },
+    {
+      "name": "Airflow",
+      "image": "/images/tech-logos/airflow.svg"
+    },
+    {
+      "name": "Kafka",
+      "image": "/images/tech-logos/kafka.svg"
+    },
+    {
+      "name": "HBase",
+      "image": "/images/tech-logos/hbase_logo.png"
+    },
+    {
+      "name": "Cassandra",
+      "image": "/images/tech-logos/logo-cassandra-500px.png"
+    },
+    {
+      "name": "MongoDB",
+      "image": "/images/tech-logos/mongodb.jpg"
+    },
+    {
+      "name": "PostgreSQL",
+      "image": "/images/tech-logos/postgresql.png"
+    },
+    {
+      "name": "Oracle Cloud",
+      "image": "/images/tech-logos/oracle cloud.png"
+    },
+    {
+      "name": "GCP",
+      "image": "/images/tech-logos/gcp.svg"
+    },
+    {
+      "name": "AWS",
+      "image": "/images/tech-logos/AWS.png"
+    }
+  ],
+  "aiMl": [
+    {
+      "name": "TensorFlow",
+      "image": "/images/tech-logos/png-clipart-tensorflow-google-brain-machine-learning-deep-learning-google-angle-text-thumbnail.png"
+    },
+    {
+      "name": "PyTorch",
+      "image": "/images/tech-logos/pytorch.png"
+    },
+    {
+      "name": "Scikit-learn",
+      "image": "/images/tech-logos/Scikit_learn_logo_small.svg.png"
+    },
+    {
+      "name": "Generative AI",
+      "image": "/images/tech-logos/argentic ai.svg"
+    },
+    {
+      "name": "Computer Vision",
+      "image": "/images/tech-logos/computer vision.jpg"
+    },
+    {
+      "name": "NLP",
+      "image": "/images/tech-logos/nlp_logo.png"
+    },
+    {
+      "name": "MLOps",
+      "image": "/images/tech-logos/mlops.png"
+    },
+    {
+      "name": "Explainable AI & Interpretabilité",
+      "image": "/images/tech-logos/xai.webp"
+    },
+    {
+      "name": "Vector DB",
+      "image": "/images/tech-logos/vector_database.webp"
+    },
+    {
+      "name": "AWS SageMaker",
+      "image": "/images/tech-logos/aws-sagemaker.jpg"
+    }
+  ],
+  "programming": [
+    {
+      "name": "Python",
+      "image": "/images/tech-logos/python.webp"
+    },
+    {
+      "name": "Java",
+      "image": "/images/tech-logos/Java_Logo.webp"
+    },
+    {
+      "name": "SQL",
+      "image": "/images/tech-logos/sql.webp"
+    },
+    {
+      "name": "Git",
+      "image": "/images/tech-logos/git.webp"
+    },
+    {
+      "name": "Django",
+      "image": "/images/tech-logos/django-icon.svg"
+    },
+    {
+      "name": "Docker",
+      "image": "/images/tech-logos/124-1243662_docker-whale-logo-docker-png-logo.png"
+    },
+    {
+      "name": "Android",
+      "image": "/images/tech-logos/android.svg"
+    },
+    {
+      "name": "C",
+      "image": "/images/tech-logos/C_Programming_Language.svg.png"
+    }
+  ],
+  "tools": [
+    {
+      "name": "Power BI",
+      "image": "/images/tech-logos/powerbi.webp"
+    },
+    {
+      "name": "MATLAB",
+      "image": "/images/tech-logos/matlab.svg"
+    },
+    {
+      "name": "Arduino",
+      "image": "/images/tech-logos/Arduino_Logo.svg"
+    },
+    {
+      "name": "FreeCAD",
+      "image": "/images/tech-logos/FreeCAD016-logo.svg.png"
+    },
+    {
+      "name": "Excel",
+      "image": "/images/tech-logos/Microsoft_Office_Excel_(2019–present).svg.png"
+    },
+    {
+      "name": "LTspice",
+      "image": "/images/tech-logos/ltspice.jpg"
+    },
+    {
+      "name": "CATIA V5",
+      "image": "/images/tech-logos/catia.webp"
+    }
+  ]
+}

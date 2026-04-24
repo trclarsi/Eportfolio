@@ -2,9 +2,9 @@
 
 import { use } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ArrowLeft, Github, ExternalLink, Calendar, Tag, Target, Lightbulb, TrendingUp, BookOpen } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, Calendar, Tag, Target, Lightbulb, TrendingUp, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
@@ -12,6 +12,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { projects } from "@/data/portfolio";
+import { useState, useEffect } from "react";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -33,6 +34,20 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   const router = useRouter();
   const resolvedParams = use(params);
   const project = projects.find((p) => p.id === resolvedParams.slug);
+  
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  
+  const allImages = project?.image ? [project.image, ...(project.gallery || [])] : project?.gallery || [];
+  const hasGallery = allImages.length > 1;
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  };
 
   if (!project) {
     notFound();
@@ -56,14 +71,59 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
-              <div className="relative aspect-video bg-background-tertiary rounded-xl mb-6 overflow-hidden">
-                {project.image ? (
-                  <Image 
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
+              <div className="relative max-h-[500px] bg-background-tertiary rounded-xl mb-6 overflow-hidden group">
+                {allImages.length > 0 ? (
+                  <>
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentImageIndex}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="relative w-full h-[400px] cursor-pointer flex items-center justify-center bg-background-tertiary rounded-xl"
+                        onClick={() => setIsLightboxOpen(true)}
+                      >
+                        <Image 
+                          src={allImages[currentImageIndex]}
+                          alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                          width={800}
+                          height={450}
+                          className="max-h-full max-w-full object-contain"
+                          unoptimized
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                    
+                    {hasGallery && (
+                      <>
+                        <button
+                          onClick={prevImage}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors opacity-0 group-hover:opacity-100"
+                        >
+                          <ChevronLeft size={24} />
+                        </button>
+                        <button
+                          onClick={nextImage}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors opacity-0 group-hover:opacity-100"
+                        >
+                          <ChevronRight size={24} />
+                        </button>
+                        
+                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                          {allImages.map((_, idx) => (
+                            <button
+                              key={idx}
+                              onClick={() => setCurrentImageIndex(idx)}
+                              className={`w-2 h-2 rounded-full transition-colors ${
+                                idx === currentImageIndex ? "bg-white" : "bg-white/50"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </>
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center">
                     <span className="text-8xl font-bold text-white/20">
@@ -245,6 +305,68 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </motion.div>
       </Section>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+            onClick={() => setIsLightboxOpen(false)}
+          >
+            <button
+              onClick={() => setIsLightboxOpen(false)}
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            >
+              <span className="text-2xl">&times;</span>
+            </button>
+
+            <button
+              onClick={(e) => { e.stopPropagation(); prevImage(); }}
+              className="absolute left-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            >
+              <ChevronLeft size={32} />
+            </button>
+
+            <button
+              onClick={(e) => { e.stopPropagation(); nextImage(); }}
+              className="absolute right-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            >
+              <ChevronRight size={32} />
+            </button>
+
+            <motion.div
+              key={currentImageIndex}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full h-full max-w-6xl max-h-[80vh] p-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={allImages[currentImageIndex]}
+                alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                fill
+                className="object-contain"
+              />
+            </motion.div>
+
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              {allImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    idx === currentImageIndex ? "bg-white" : "bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }

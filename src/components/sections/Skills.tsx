@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Lightbulb, Users, ArrowRight } from "lucide-react";
+import { Lightbulb, Users, ArrowRight, BarChart, MessageSquare, Target, Zap, Search } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -11,11 +11,16 @@ import { skills, techStack } from "@/data/portfolio";
 const softSkillIcons: Record<string, React.ElementType> = {
   Lightbulb,
   Users,
+  MessageSquare,
+  Target,
+  Zap,
+  Search,
+  BarChart,
 };
 
 export function Skills() {
-  const allTechs = [...techStack.bigData, ...techStack.aiMl, ...techStack.programming, ...techStack.tools];
-  const topTechs = allTechs.slice(0, 8);
+  const allTechs = [...techStack.resume];
+  const topTechs = allTechs.slice(0, 10);
 
   return (
     <Section id="skills">
@@ -32,7 +37,7 @@ export function Skills() {
           </span>
         </h2>
         <p className="text-foreground-secondary max-w-xl mx-auto">
-          Expertise technique en Python, Machine Learning, Big Data et développement web.
+          Expertise technique en Python, Machine Learning, Big Data et Développement Logiciel.
         </p>
       </motion.div>
 
@@ -74,7 +79,7 @@ export function Skills() {
             Transversales
           </h3>
           <div className="grid grid-cols-2 gap-3">
-            {skills.soft.slice(0, 4).map((skill, index) => {
+            {skills.soft.slice(0, 6).map((skill, index) => {
               const Icon = softSkillIcons[skill.icon] || Lightbulb;
               return (
                 <motion.div

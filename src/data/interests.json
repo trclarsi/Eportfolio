@@ -1,0 +1,7 @@
+[
+  { "name": "Échecs", "icon": "Chess" },
+  { "name": "Football", "icon": "Soccer" },
+  { "name": "Cinéma", "icon": "Film" },
+  { "name": "Jeux vidéo", "icon": "Gamepad2" },
+  { "name": "Jeux de société", "icon": "Dices" }
+]

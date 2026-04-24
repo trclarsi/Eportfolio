@@ -38,7 +38,7 @@ export function Contact() {
         <h2 className="text-3xl md:text-4xl font-bold font-[var(--font-outfit)] mb-4">
           Me{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-secondary">
-            Contact
+            Contacter
           </span>
         </h2>
         <p className="text-foreground-secondary max-w-xl mx-auto">

@@ -1,8 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, MapPin, Download, Lightbulb, Zap, Users, Award } from "lucide-react";
+import { ArrowLeft, MapPin, Download, Lightbulb, Zap, Users, Award, BarChart } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -10,10 +11,10 @@ import { Badge } from "@/components/ui/Badge";
 import { personalInfo, education, certifications, interests, transcripts } from "@/data/portfolio";
 
 const stats = [
-  { value: "3+", label: "Années d'expérience" },
-  { value: "8+", label: "Projets réalisés" },
+  { value: "1+", label: "Années d’expérience" },
+  { value: "9+", label: "Projets réalisés" },
   { value: "15+", label: "Technologies maîtrisées" },
-  { value: "5", label: "Certifications" },
+  { value: "5+", label: "Certifications" },
 ];
 
 const interestIcons: Record<string, React.ElementType> = {
@@ -36,10 +37,10 @@ const interestIcons: Record<string, React.ElementType> = {
 
 const highlights = [
   {
-    icon: Lightbulb,
-    title: "Vision Analytique",
+    icon: BarChart,
+    title: "Approche Data-Driven",
     description:
-      "Capacité à transformer des données complexes en insights actionnables",
+      "Décisions et solutions pilotées par l’analyse rigoureuse des données pour un impact maximal",
   },
   {
     icon: Zap,
@@ -82,7 +83,7 @@ export function AboutContent() {
             </span>
           </h1>
           <p className="text-foreground-secondary text-lg max-w-2xl mx-auto">
-            Passionné par les données et l&apos;intelligence artificielle, je transforme
+            Passionné par les données et l’intelligence artificielle, je transforme
             les chiffres en solutions innovantes.
           </p>
         </motion.div>
@@ -97,14 +98,12 @@ export function AboutContent() {
             <div className="relative w-64 h-64 mx-auto lg:mx-0">
               <div className="absolute inset-0 bg-gradient-to-br from-accent to-accent-secondary rounded-full blur-2xl opacity-30" />
               <div className="relative w-full h-full rounded-full bg-background-tertiary border-4 border-accent flex items-center justify-center overflow-hidden">
-                <div className="text-center p-4">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-accent/30 to-accent-secondary/30 flex items-center justify-center mb-2 mx-auto">
-                    <span className="text-4xl font-bold font-[var(--font-outfit)] text-accent">
-                      CTL
-                    </span>
-                  </div>
-                  <p className="text-sm text-foreground-secondary">{personalInfo.name}</p>
-                </div>
+                <Image
+                  src={personalInfo.photo}
+                  alt={personalInfo.name}
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
 
@@ -131,7 +130,7 @@ export function AboutContent() {
             </h2>
 
             <p className="text-foreground-secondary text-lg mb-6 leading-relaxed">
-              {personalInfo.description.replace("d'IA", "d&apos;IA")}
+              {personalInfo.description}
             </p>
 
             <div className="flex items-center gap-2 text-foreground-secondary mb-8">
@@ -205,37 +204,7 @@ export function AboutContent() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="mb-20"
         >
-          <h3 className="text-2xl font-bold font-[var(--font-outfit)] mb-8 flex items-center gap-2">
-            <Award size={28} className="text-accent" />
-            Certifications
-          </h3>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={cert.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + index * 0.1 }}
-              >
-                <Card hover className="h-full">
-                  <Badge variant="accent" icon={Award} className="mb-2">
-                    {cert.issuer}
-                  </Badge>
-                  <p className="font-medium mb-1">{cert.name}</p>
-                  <p className="text-sm text-foreground-secondary">{cert.year}</p>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          className="mb-20"
-        >
           <h3 className="text-2xl font-bold font-[var(--font-outfit)] mb-8 flex items-center gap-2">
             <Award size={28} className="text-accent" />
             Certifications
@@ -272,7 +241,7 @@ export function AboutContent() {
           <h3 className="text-2xl font-bold font-[var(--font-outfit)] mb-8">
             Mes{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-secondary">
-              Interests
+              Intérêts
             </span>
           </h3>
 
@@ -335,8 +304,9 @@ export function AboutContent() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.3 }}
+          className="mb-20"
         >
-          <h3 className="text-2xl font-bold font-[var(--font-outfit)] mb-8 text-center">
+          <h3 className="text-2xl font-bold font-[var(--font-outfit)] mb-8">
             Mes{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-secondary">
               points forts
@@ -351,8 +321,8 @@ export function AboutContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 + index * 0.1 }}
               >
-                <Card hover className="h-full text-center">
-                  <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                <Card hover className="h-full">
+                  <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-4">
                     <item.icon size={28} className="text-accent" />
                   </div>
                   <h4 className="text-lg font-semibold mb-2">{item.title}</h4>
@@ -369,11 +339,13 @@ export function AboutContent() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.4 }}
-          className="mb-12"
+          className="mb-20"
         >
-          <h3 className="text-2xl font-bold font-[var(--font-outfit)] mb-8 flex items-center gap-2">
-            <Award size={28} className="text-accent" />
-            Transcripts Académiques
+          <h3 className="text-2xl font-bold font-[var(--font-outfit)] mb-8">
+            Relevés de notes{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-secondary">
+              Académiques
+            </span>
           </h3>
 
           <div className="grid md:grid-cols-2 gap-6">

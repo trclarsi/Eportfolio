@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { MapPin, Download, ArrowRight } from "lucide-react";
@@ -8,10 +9,10 @@ import { Button } from "@/components/ui/Button";
 import { personalInfo } from "@/data/portfolio";
 
 const stats = [
-  { value: "3+", label: "Années d'expérience" },
-  { value: "7+", label: "Projets réalisés" },
+  { value: "1+", label: "Années d’expérience" },
+  { value: "9+", label: "Projets réalisés" },
   { value: "15+", label: "Technologies maîtrisées" },
-  { value: "4", label: "Certifications" },
+  { value: "5+", label: "Certifications" },
 ];
 
 export function About() {
@@ -25,17 +26,15 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="relative"
         >
-          <div className="relative w-48 h-48 mx-auto lg:mx-0">
+          <div className="relative w-64 h-64 mx-auto lg:mx-0">
             <div className="absolute inset-0 bg-gradient-to-br from-accent to-accent-secondary rounded-full blur-2xl opacity-30" />
-            <div className="relative w-full h-full rounded-full bg-background-tertiary border-4 border-accent flex items-center justify-center overflow-hidden">
-              <div className="text-center p-4">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-accent/30 to-accent-secondary/30 flex items-center justify-center mb-2 mx-auto">
-                  <span className="text-3xl font-bold font-[var(--font-outfit)] text-accent">
-                    CTL
-                  </span>
-                </div>
-                <p className="text-sm text-foreground-secondary">{personalInfo.name}</p>
-              </div>
+            <div className="relative w-full h-full rounded-full bg-background-tertiary border-4 border-accent overflow-hidden group">
+              <Image
+                src={personalInfo.photo}
+                alt={personalInfo.name}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
             </div>
           </div>
 
@@ -44,7 +43,7 @@ export function About() {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="absolute -bottom-3 -right-3 lg:right-0 bg-background-tertiary rounded-lg p-3 border border-accent/20"
+            className="absolute -bottom-3 -right-3 lg:right-0 bg-background-tertiary rounded-lg p-3 border border-accent/20 shadow-xl"
           >
             <p className="text-accent font-bold text-lg">{personalInfo.title}</p>
           </motion.div>
@@ -64,9 +63,9 @@ export function About() {
           </h2>
 
           <p className="text-foreground-secondary mb-4 leading-relaxed">
-            Passionné par les données et l&apos;IA, je suis Ingénieur en Systèmes 
+            Passionné par les données et l&apos;IA, je suis Ingénieur Généraliste des Systèmes 
             Industriels à l&apos;EIGSI Casablanca. Mon expertise : Big Data, 
-            Machine Learning et développement web.
+            Intelligence Artificielle.
           </p>
 
           <div className="flex items-center gap-2 text-foreground-secondary mb-6">

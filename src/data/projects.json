@@ -1,0 +1,377 @@
+[
+  {
+    "id": "city-guide-ai-rag",
+    "title": "City-Guide AI - Assistant RAG Municipal",
+    "category": "ai-ml",
+    "description": "Système intelligent de traitement des demandes citoyennes utilisant l'architecture RAG pour désaturer les services administratifs.",
+    "problem": "Les mairies sont saturées par des demandes d'information sur des événements et régulations qui changent constamment. Les LLM classiques hallucinent et n'ont pas accès aux documents internes mis à jour en temps réel.",
+    "solution": "Architecture RAG (Retrieval-Augmented Generation) multi-modale extrayant les données de PDF complexes, scans (OCR) et audio (Whisper). Utilisation de FAISS pour la recherche sémantique et Gemini/SBERT pour les embeddings, garantissant des réponses 100% ancrées dans les documents officiels.",
+    "challenges": [
+      "Extraction de données propres depuis des documents scannés de qualité variable (OCR)",
+      "Optimisation du chunking récursif pour préserver la cohérence des règles administratives",
+      "Mise en place d'une évaluation rigoureuse de la fidélité via le framework Ragas"
+    ],
+    "results": [
+      "Zéro Hallucination : Réponses strictement sourcées et citées via un ancrage documentaire (Grounding).",
+      "Multi-modalité Native : Capacité à traiter des archives papier et des notes vocales des citoyens.",
+      "Qualité Mesurable : Intégration de Ragas pour l'audit permanent de la pertinence et de la précision.",
+      "Déploiement Agile : Mise à jour instantanée des connaissances sans ré-entraînement du modèle."
+    ],
+    "leconsApprises": [
+      "Qualité des données fondamentale pour le RAG",
+      "Chunking stratégique préservant la cohérence sémantique",
+      "Modèles d'embedding contextualisés plus performants",
+      "Paramètres (temperature 0.2) garantissant la factualité",
+      "Boucle de feedback essentielle pour l'amélioration continue",
+      "Importance de RAGAS pour évaluer un RAG et comprendre son fonctionnement"
+    ],
+    "technologies": [
+      "Python",
+      "FAISS",
+      "SBERT",
+      "Google Gemini",
+      "Whisper",
+      "Ragas",
+      "Docling",
+      "EasyOCR",
+      "Streamlit",
+      "Google Generative AI"
+    ],
+    "github": "https://github.com/trclarsi/rag_mairie",
+    "featured": false,
+    "image": "/images/projects/rag-mairie/workflow.png",
+    "gallery": []
+  },
+  {
+    "id": "cloud-etl-pipeline",
+    "title": "Pipeline ETL Cloud Météo",
+    "category": "big-data",
+    "description": "Pipeline ETL automatisé sur Google Cloud Platform pour la collecte et le traitement de données météorologiques.",
+    "problem": "Etablir un système robuste et automatisé pour collecter, traiter et stocker des données météo en temps réel depuis l'API OpenWeatherMap, avec besoin de données propres et fiables pour l'analyse.",
+    "solution": "Pipeline ELT entièrement conteneurisé avec Docker, orchestré par Apache Airflow (DAG quotidien). Extraction Python -> GCS (Data Lake) -> Transformation Spark -> BigQuery (Warehouse). Infrastructure provisionnée via Terraform (IaC).",
+    "challenges": [
+      "Gestion des échecs et retry automatique",
+      "Orchestration complexe des tâches",
+      "Reproductibilité de l'infrastructure"
+    ],
+    "results": [
+      "Automatisation via Airflow scheduling",
+      "Données propres et requêtables dans BigQuery",
+      "Infrastructure reproduisible via Terraform"
+    ],
+    "leconsApprises": [
+      "IaC essentielle pour la reproductibilité",
+      "Monitoring indispensable des pipelines",
+      "L'orchestration avec Airflow est essentielle pour gérer les workflows complexes",
+      "La séparation claire des responsabilités (E-T-L) facilite la maintenance",
+      "Les credentials ne doivent jamais être hardcodées"
+    ],
+    "technologies": [
+      "Python",
+      "Docker",
+      "Apache Airflow",
+      "Apache Spark",
+      "Google Cloud Platform",
+      "Google BigQuery",
+      "Google Cloud Storage",
+      "Terraform"
+    ],
+    "github": "https://github.com/trclarsi/Pipeline_ETL_OpenWeather",
+    "featured": true,
+    "image": "/images/projects/etl/screenshot1.png",
+    "gallery": [
+      "/images/projects/etl/screenshot1.png",
+      "/images/projects/etl/screenshot2.png",
+      "/images/projects/etl/2.png"
+    ]
+  },
+  {
+    "id": "refinery-monitoring",
+    "title": "Monitoring Temps Réel Raffinerie",
+    "category": "big-data",
+    "description": "Système de monitoring IoT temps réel pour l'unité de cokéfaction d'une raffinerie de pétrole.",
+    "problem": "Manque de visibilité centralisée en temps réel sur la santé des équipements de l'unité de cokéfaction. Données fragmentées sur plusieurs systèmes, risquant des pannes coûteuses et non conformes. Variables critiques à surveiller: température du four (480-500°C), pression du tambour (1.5-2.3 MPa), niveau de coke (30-85%), concentration H₂S (0-5 ppm).",
+    "solution": "Architecture IoT temps réel: Capteurs SIMULÉS (Python) -> MQTT Broker -> Kafka (streaming) -> Spark Streaming (analyse temps réel) -> TimescaleDB (stockage série temporelle) + Grafana (visualisation dashboards, alertes automatisées).",
+    "challenges": [
+      "Haute fréquence des données capteurs",
+      "Traitement temps réel à faible latence",
+      "Configuration des alertes automatisées"
+    ],
+    "results": [
+      "Visibilité temps réel centralisée",
+      "Alertes automatiques pour maintenance"
+    ],
+    "leconsApprises": [
+      "Découverte des protocoles de communications (MQTT, Kafka)",
+      "Apprentissage de la stack complète (Spark, TimescaleDB, Grafana)"
+    ],
+    "technologies": [
+      "Python",
+      "Docker",
+      "Kafka",
+      "Spark Streaming",
+      "Grafana",
+      "TimescaleDB",
+      "MQTT",
+      "Minio"
+    ],
+    "github": "https://github.com/trclarsi/systeme_monitoring_rafinerie_cokefaction",
+    "featured": true,
+    "image": "/images/projects/monitoring/architecture.png",
+    "gallery": [
+      "/images/projects/monitoring/grafana.jpg",
+      "/images/projects/monitoring/architecture.png",
+      "/images/projects/monitoring/IDE.png",
+      "/images/projects/monitoring/bdd.png",
+      "/images/projects/monitoring/minio.png"
+    ]
+  },
+  {
+    "id": "brain-tumor-classification",
+    "title": "Classification de Tumeurs Cérébrales",
+    "category": "ai-ml",
+    "description": "Modèle CNN pour la classification de tumeurs cérébrales à partir d'images IRM.",
+    "problem": "Diagnostic long et complexe des tumeurs cérébrales sur images IRM, nécessitant une expertise spécialisée et beaucoup de temps.",
+    "solution": "Modèle CNN développé avec TensorFlow et Keras sur le dataset BRATS 2020. Architecture: Conv2D (extraction features), MaxPooling2D (réduction dimension), Dropout (prévention overfitting), Flatten, Dense (classification). Classification en 4 catégories: Gliome, Méningiome, Pituitaire, Sain.",
+    "challenges": [
+      "Déséquilibre important des classes (plus de sain que de tumeur)",
+      "Préprocessing des images IRM",
+      "Prévention de l'overfitting"
+    ],
+    "results": [
+      "Validation: 66.55% accuracy, F1-Score 0.67, Loss 0.75",
+      "Test: 48.22% accuracy, F1-Score 0.44, Loss 2.24"
+    ],
+    "leconsApprises": [
+      "Importance du data processing",
+      "Impact du déséquilibre des classes sur les performances",
+      "Choix du modèle CNN adapté aux images médicales"
+    ],
+    "technologies": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "OpenCV",
+      "NumPy",
+      "Matplotlib"
+    ],
+    "github": "https://github.com/trclarsi/classification_tumor_mri",
+    "featured": false,
+    "image": "/images/projects/brain-tumor/tumor.png",
+    "gallery": [
+      "/images/projects/brain-tumor/tumor.png",
+      "/images/projects/brain-tumor/matrice de confusion.png",
+      "/images/projects/brain-tumor/output.png",
+      "/images/projects/brain-tumor/Screenshot 2025-11-13 111543.png"
+    ]
+  },
+  {
+    "id": "vehicle-detection",
+    "title": "Détection de Véhicules avec YOLO",
+    "category": "ai-ml",
+    "description": "Modèle de détection d'objets capable d'identifier et de localiser plusieurs classes de véhicules dans des images et des vidéos. Utilise l'architecture YOLO (You Only Look Once).",
+    "problem": "Surveillance routière lente et inefficace avec détection manuelle des véhicules, limitant les capacités d'analyse et de sécurité.",
+    "solution": "Fine-tuning du modèle YOLO (v8) implémenté avec PyTorch sur un dataset personnalisé avec 5 classes: Ambulance, Bus, Voiture, Moto, Camion. Testé sur vidéo TrafficPolice.avi pour détection en conditions réelles.",
+    "challenges": [
+      "Fine-tuning du modèle YOLO sur dataset personnalisé",
+      "Détection en temps réel sur images et vidéos"
+    ],
+    "results": [
+      "Détection temps réel sur images et vidéos",
+      "Testé sur vidéo TrafficPolice.avi"
+    ],
+    "leconsApprises": [
+      "Architecture YOLO pour la détection d'objets en temps réel"
+    ],
+    "technologies": [
+      "Python",
+      "YOLO",
+      "PyTorch",
+      "OpenCV",
+      "NumPy",
+      "Jupyter Notebook"
+    ],
+    "github": "https://github.com/trclarsi/image-detection",
+    "featured": false,
+    "image": "/images/projects/vehicle-detection/output entrainement.png",
+    "gallery": [
+      "/images/projects/vehicle-detection/output entrainement.png",
+      "/images/projects/vehicle-detection/marice de confusion.png"
+    ]
+  },
+  {
+    "id": "marketing-analysis",
+    "title": "Analyse Marketing VertiGo",
+    "category": "data",
+    "description": "Analyse statistique des données clients pour optimiser les stratégies marketing de l'entreprise VertiGo.",
+    "problem": "Dans un contexte de concurrence accrue, identifier les préférences de voyage (destinations, types, saisons), évaluer l'efficacité des campagnes marketing, et analyser les tendances d'achat en fonction de critères démographiques.",
+    "solution": "Utilisation de deux sources de données 2023 (base client et base entreprise). Nettoyage: suppression doublons, traitement outliers, imputation valeurs manquantes (médiane pour numérique, mode pour catégoriel). Tests: Pearson, Spearman (corrélations), Fisher, Chi-2 (variables qualitatives), T-test, ANOVA (comparaisons de moyennes).",
+    "challenges": [
+      "Nettoyage et préparation des données",
+      "Choix des tests statistiques appropriés",
+      "Interprétation des résultats"
+    ],
+    "results": [
+      "Corrélation dépenses pub/réservations: r=0.926 (p<0.001)",
+      "Corrélation revenus/clients: r=0.980 (p<0.001)",
+      "Corrélation durée/prix: ρ=0.994 (p<0.001)",
+      "Aucune dépendance significative: genre↔type voyage, saison↔destination, satisfaction↔type voyage"
+    ],
+    "leconsApprises": [
+      "80% du temps consacré à l'analyse et préparation des données",
+      "Importance des visualisations pour communiquer les résultats",
+      "Interprétation prudente des résultats (données 2023 uniquement)"
+    ],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "Matplotlib",
+      "Scikit-learn",
+      "NumPy",
+      "SciPy"
+    ],
+    "github": "https://github.com/trclarsi/Analyse_donnee_vertigo",
+    "featured": false,
+    "image": "/images/projects/marketing/data-marketing-1024x512.png",
+    "gallery": [
+      "/images/projects/marketing/data-marketing-1024x512.png",
+      "/images/projects/marketing/Screenshot 2025-10-27 103447.png",
+      "/images/projects/marketing/Screenshot 2025-10-27 103522.png",
+      "/images/projects/marketing/Screenshot 2025-10-27 103554.png",
+      "/images/projects/marketing/Screenshot 2025-10-27 103630.png"
+    ]
+  },
+  {
+    "id": "zando-ecommerce",
+    "title": "Zando - Plateforme E-commerce",
+    "category": "web",
+    "description": "Plateforme e-commerce fullstack avec API REST et interface utilisateur moderne.",
+    "problem": "Au Congo, les plateformes de marketplace modernes sont rares. Besoin de créer une plateforme e-commerce multi-vendeurs permettant à plusieurs utilisateurs de vendre leurs produits et aux acheteurs de trouver tout ce dont ils ont besoin en un seul endroit.",
+    "solution": "Application complète avec gestion des utilisateurs, produits, catégories, paniers, commandes, paiements, avis, messagerie, inventaire et statistiques. Interface moderne Next.js 16 avec Tailwind CSS. Possibilité de mode Marketplace (multi-vendeurs) ou Boutique Privée (mono-vendeur) sans codage. Système de messagerie temps réel entre utilisateurs.",
+    "results": [
+      "Zéro erreur d'inventaire grâce à l'implémentation de transactions atomiques (select_for_update) et d'un automate d'états strict pour les commandes.",
+      "Interface utilisateur moderne et réactive",
+      "Déploiement rapide via Docker"
+    ],
+    "leconsApprises": [
+      "Tests unitaires indispensables pour la maintenance",
+      "Importance de la séparation des responsabilités (backend/frontend)",
+      "Mixins pour filtrage centralisé (plus sûr que répétition dans chaque vue)",
+      "Atomicité des opérations (commande + stock) indispensable en e-commerce",
+      "Configuration en base de données pour scalabilité (SaaS)",
+      "Anticipation des mises à jour frameworks (architecture modulaire)"
+    ],
+    "technologies": [
+      "Django",
+      "Django REST Framework",
+      "Next.js 16",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Docker",
+      "Ruff",
+      "Black"
+    ],
+    "github": "https://github.com/trclarsi/Zandofront",
+    "github2": "https://github.com/trclarsi/Zando_",
+    "featured": false,
+    "image": "/images/projects/zando/django-icon.svg",
+    "gallery": []
+  },
+  {
+    "id": "medical-drone",
+    "title": "Drone Médical de Transport",
+    "category": "embedded",
+    "description": "Conception et développement d'un drone quadrotor pour la livraison de produits médicaux dans des zones éloignées.",
+    "problem": "Accès limité aux médicaments dans les zones éloignées ou sinistrées, nécessitant une solution de livraison rapide et autonome.",
+    "solution": "Conception et assemblage complet: Design mécanique du châssis via FreeCAD, Impression 3D PLA (léger et robuste), Sélection composants électroniques (moteurs brushless 2200KV, contrôleur de vol Speedybee F405 V3 intégré ESC, Radio FlySky FS-i6S, Batterie LiPo 1500mAh 3S), Configuration et tuning via Betaflight.",
+    "challenges": [
+      "Sourcing des composants au Maroc (import depuis France)",
+      "Logistique : annulation commande hélices",
+      "Précision de l'impression 3D (service externe nécessaire)"
+    ],
+    "results": [
+      "Dimensions: 200mm x 200mm",
+      "Vitesse moteur: 2300 RPM/Volt",
+      "Batterie: 1500mAh 3S LiPo",
+      "Charge utile: 1 kg"
+    ],
+    "leconsApprises": [
+      "Gestion de projet rigoureuse (diagramme de Gantt, KPI, courbe en S)",
+      "Importance du réseau pour le sourcing de composants",
+      "Anticipation des contraintes logistiques",
+      "Gérer une équipe",
+      "Soudure",
+      "Modélisation 3D"
+    ],
+    "technologies": [
+      "FreeCAD",
+      "Betaflight",
+      "3D Printing",
+      "PLA",
+      "Speedybee F405 V3",
+      "FlySky FS-i6S",
+      "LiPo"
+    ],
+    "featured": true,
+    "image": "/images/projects/drone/IMG-20250920-WA0003.jpg",
+    "gallery": [
+      "/images/projects/drone/IMG-20250920-WA0003.jpg",
+      "/images/projects/drone/IMG-20250920-WA0004.jpg",
+      "/images/projects/drone/IMG-20250920-WA0005.jpg",
+      "/images/projects/drone/IMG-20250920-WA0006.jpg",
+      "/images/projects/drone/image-chassis-drone.jpg"
+    ]
+  },
+  {
+    "id": "samp-predictive-maintenance",
+    "title": "SAMP - Maintenance Prédictive",
+    "category": "ai-ml",
+    "description": "Système de maintenance prédictive pour moteurs aéronautiques avec estimation du RUL (Remaining Useful Life) et explicabilité.",
+    "problem": "Coûts élevés de maintenance non planifiée sur les moteurs aéronautiques, causant des retards, annulations et dépenses imprévues.",
+    "solution": "Modèle LSTM (Long Short-Term Memory) pour l'estimation du RUL basé sur les données du dataset NASA Turbofan Engine Degradation Simulation. Intégration de l'IA explicable (XAI) via Captum et SHAP pour comprendre les prédictions. Déploiement via FastAPI (API) + React (dashboard), export modèle ONNX.",
+    "challenges": [
+      "Données fortement déséquilibrées (peu de cas de panne)",
+      "Explicabilité du modèle pour la confiance des ingénieurs",
+      "Optimisation des hyperparamètres"
+    ],
+    "results": [
+      "RMSE: 14.98",
+      "NASA Score: 499",
+      "R2: 0.87"
+    ],
+    "leconsApprises": [
+      "Importance des modèles récurrents pour les séries temporelles",
+      "XAI essentiel pour l'adoption en milieu industriel",
+      "Feature engineering (EWA, Rolling, Delta) essentiel pour la qualité des prédictions",
+      "Gestion du data leakage (split par moteur)",
+      "Choix du window size optimal (20 cycles)"
+    ],
+    "technologies": [
+      "Python",
+      "Poetry",
+      "PyTorch",
+      "LSTM",
+      "XGBoost",
+      "FastAPI",
+      "React",
+      "npm",
+      "Docker",
+      "ONNX",
+      "Captum",
+      "SHAP",
+      "ClearML"
+    ],
+    "github": "https://github.com/trclarsi/SAMP",
+    "featured": true,
+    "image": "/images/projects/samp/prediction.png",
+    "gallery": [
+      "/images/projects/samp/prediction.png",
+      "/images/projects/samp/clearml_metric.png",
+      "/images/projects/samp/signal.png",
+      "/images/projects/samp/lstm_captum_importance.png",
+      "/images/projects/samp/Screenshot 2026-02-16 163314.png",
+      "/images/projects/samp/Screenshot 2026-02-16 163359.png",
+      "/images/projects/samp/Screenshot 2026-02-16 171643.png"
+    ]
+  }
+]

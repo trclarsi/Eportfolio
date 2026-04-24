@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -15,6 +15,13 @@ export function Navbar() {
   const pathname = usePathname();
 
   const isHome = pathname === "/";
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   if (!isHome) {
     return (
@@ -84,7 +91,6 @@ export function Navbar() {
             ? "bg-background/80 backdrop-blur-xl border-b border-white/5 py-3"
             : "bg-transparent py-5"
         )}
-        onScroll={() => setIsScrolled(true)}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between">
           <Link

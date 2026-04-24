@@ -100,25 +100,28 @@ export function ProjectsContent() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ delay: index * 0.05 }}
               >
-                <Card hover className="h-full flex flex-col group">
-                  <div className="relative aspect-video bg-background-tertiary rounded-lg mb-4 overflow-hidden">
+                <Card hover className="h-full flex flex-col group relative">
+                  {/* Overlay Link for the whole card */}
+                  <Link 
+                    href={`/projects/${project.id}`} 
+                    className="absolute inset-0 z-0"
+                    aria-label={`Voir les détails du projet ${project.title}`}
+                  />
+
+                  <div className="relative aspect-video bg-background-tertiary rounded-lg mb-4 overflow-hidden z-10 pointer-events-none">
                     {project.image ? (
-                      <Link href={`/projects/${project.id}`}>
-                        <Image 
-                          src={project.image} 
-                          alt={project.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </Link>
+                      <Image 
+                        src={project.image} 
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                      />
                     ) : (
-                      <Link href={`/projects/${project.id}`} className="absolute inset-0">
-                        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center">
-                          <span className="text-4xl font-bold text-white/20">
-                            {project.title.charAt(0)}
-                          </span>
-                        </div>
-                      </Link>
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center">
+                        <span className="text-4xl font-bold text-white/20">
+                          {project.title.charAt(0)}
+                        </span>
+                      </div>
                     )}
                     {project.featured && (
                       <div className="absolute top-2 right-2 z-10">
@@ -127,10 +130,12 @@ export function ProjectsContent() {
                         </Badge>
                       </div>
                     )}
+                    
+                    {/* Hover actions - need pointer-events-auto to work */}
                     <motion.div
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
-                      className="absolute inset-0 bg-background/90 flex items-center justify-center gap-4 z-20"
+                      className="absolute inset-0 bg-background/90 flex items-center justify-center gap-4 z-20 pointer-events-auto"
                     >
                       {project.github && (
                         <a
@@ -157,7 +162,7 @@ export function ProjectsContent() {
                     </motion.div>
                   </div>
 
-                  <div className="flex-1 flex flex-col">
+                  <div className="flex-1 flex flex-col relative z-10 pointer-events-none">
                     <Badge
                       variant={categoryColors[project.category] || "default"}
                       className="w-fit mb-2"
@@ -165,11 +170,9 @@ export function ProjectsContent() {
                       {project.category.replace("-", " ")}
                     </Badge>
 
-                    <Link href={`/projects/${project.id}`}>
-                      <h3 className="text-lg font-semibold mb-2 group-hover:text-accent transition-colors">
-                        {project.title}
-                      </h3>
-                    </Link>
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-accent transition-colors">
+                      {project.title}
+                    </h3>
 
                     <p className="text-foreground-secondary text-sm mb-4 flex-1">
                       {project.description}
@@ -188,10 +191,10 @@ export function ProjectsContent() {
                       )}
                     </div>
                     
-                    <Link href={`/projects/${project.id}`} className="flex items-center text-accent text-sm font-medium mt-auto hover:underline">
+                    <div className="flex items-center text-accent text-sm font-medium mt-auto group-hover:underline">
                       <span>Voir les détails</span>
                       <ArrowRight size={16} className="ml-1" />
-                    </Link>
+                    </div>
                   </div>
                 </Card>
               </motion.div>

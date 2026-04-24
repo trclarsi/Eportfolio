@@ -1,0 +1,55 @@
+[
+  {
+    "id": "Vinci-2026",
+    "company": "Vinci Energies",
+    "role": "Stagiaire Ingénieur IA",
+    "period": "Janvier - Juillet 2026",
+    "description": "Système intelligent de gestion électronique de documents d’un bureau d’études.",
+    "technologies": [
+      "Python",
+      "Django",
+      "OCR",
+      "EAV"
+    ]
+  },
+  {
+    "id": "sm2i-2025",
+    "company": "SM2I",
+    "role": "Stagiaire ML Ingénieur",
+    "period": "Mai - Septembre 2025",
+    "description": "Conception de pipelines ML pour prédiction de délais.",
+    "technologies": [
+      "Python",
+      "Scikit-learn",
+      "Pandas"
+    ]
+  },
+  {
+    "id": "texefa-2024",
+    "company": "TEXEFA",
+    "role": "Support Chef de Projet",
+    "period": "Juin - Juillet 2024",
+    "description": "Gestion de projet Agile pour plateforme éducative.",
+    "technologies": [
+      "WordPress",
+      "Ms Project"
+    ],
+    "highlights": [
+      "Méthode Agile"
+    ]
+  },
+  {
+    "id": "longometal-2023",
+    "company": "LONGOMETAL",
+    "role": "Technicien Maintenance",
+    "period": "Juillet 2023",
+    "description": "Analyse AMDEC pour maintenance préventive.",
+    "technologies": [
+      "Excel",
+      "Autocad"
+    ],
+    "highlights": [
+      "Rapport technique"
+    ]
+  }
+]

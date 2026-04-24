@@ -19,7 +19,7 @@ const serviceIcons: Record<string, React.ElementType> = {
 
 const whyChooseMe = [
   { text: "Réactivité et respect des délais" },
-  { text: "Expertise technique approfondie" },
+  { text: "Expertise technique" },
   { text: "Support et maintenance post-projet" },
   { text: "Communication claire et transparente" },
 ];
@@ -75,9 +75,8 @@ export function ServicesContent() {
               >
                 <Card
                   hover
-                  className={`h-full cursor-pointer transition-all duration-300 ${
-                    isExpanded ? "border-accent" : ""
-                  }`}
+                  className={`h-full cursor-pointer transition-all duration-300 ${isExpanded ? "border-accent" : ""
+                    }`}
                   onClick={() => toggleService(service.title)}
                 >
                   <div className="flex items-start gap-4">
@@ -129,9 +128,8 @@ export function ServicesContent() {
                       {isExpanded ? "Voir moins" : "En savoir plus"}
                       <ArrowRight
                         size={16}
-                        className={`ml-2 transition-transform ${
-                          isExpanded ? "rotate-90" : ""
-                        }`}
+                        className={`ml-2 transition-transform ${isExpanded ? "rotate-90" : ""
+                          }`}
                       />
                     </Button>
                   </div>

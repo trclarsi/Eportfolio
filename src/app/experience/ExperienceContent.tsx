@@ -36,7 +36,7 @@ export function ExperienceContent() {
             </span>
           </h1>
           <p className="text-foreground-secondary text-lg max-w-2xl mx-auto">
-            Mon parcours professionnel et mes expériences stages qui m&apos;ont permis de
+            Mon parcours professionnel et mes expériences de stage qui m&apos;ont permis de
             développer mes compétences techniques.
           </p>
         </motion.div>
@@ -51,22 +51,29 @@ export function ExperienceContent() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
-                className={`relative flex flex-col md:flex-row gap-8 ${
+                className={`relative flex flex-col md:flex-row items-center ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                <div className="flex-1 md:text-right">
-                  <Card className="inline-block text-left md:text-right">
-                    <div className="flex items-center gap-2 text-accent mb-2">
+                {/* Card Container */}
+                <div className={`flex-1 w-full md:w-1/2 ${
+                  index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"
+                }`}>
+                  <Card className="w-full">
+                    <div className={`flex items-center gap-2 text-accent mb-2 ${
+                      index % 2 === 0 ? "md:justify-end" : "md:justify-start"
+                    }`}>
                       <Calendar size={16} />
                       <span className="text-sm">{exp.period}</span>
                     </div>
                     <h3 className="text-lg font-semibold mb-1">{exp.role}</h3>
                     <p className="text-foreground-secondary mb-3">{exp.company}</p>
-                    <p className="text-sm text-foreground-secondary mb-4">
+                    <p className="text-sm text-foreground-secondary mb-4 leading-relaxed">
                       {exp.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 justify-start md:justify-end">
+                    <div className={`flex flex-wrap gap-2 ${
+                      index % 2 === 0 ? "md:justify-end" : "md:justify-start"
+                    }`}>
                       {exp.technologies.map((tech) => (
                         <Badge key={tech} variant="default" className="text-xs">
                           {tech}
@@ -78,9 +85,11 @@ export function ExperienceContent() {
                         {exp.highlights.map((highlight, i) => (
                           <p
                             key={i}
-                            className="text-sm text-accent flex items-center gap-2"
+                            className={`text-sm text-accent flex items-center gap-2 ${
+                              index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
+                            }`}
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                             {highlight}
                           </p>
                         ))}
@@ -89,6 +98,7 @@ export function ExperienceContent() {
                   </Card>
                 </div>
 
+                {/* Center Dot */}
                 <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent border-4 border-background z-10">
                   <motion.div
                     animate={{ scale: [1, 1.5, 1] }}
@@ -97,6 +107,7 @@ export function ExperienceContent() {
                   />
                 </div>
 
+                {/* Empty Space for symmetry */}
                 <div className="flex-1 hidden md:block" />
               </motion.div>
             ))}

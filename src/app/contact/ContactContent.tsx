@@ -94,11 +94,11 @@ export function ContactContent() {
           <h1 className="text-4xl md:text-5xl font-bold font-[var(--font-outfit)] mb-4">
             Me{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-secondary">
-              Contact
+              Contacter
             </span>
           </h1>
           <p className="text-foreground-secondary text-lg max-w-2xl mx-auto">
-            Vous avez un projet en tête ou une question ? N&apos;hésitez pas à me
+            Vous avez un projet en tête ou une question ? N’hésitez pas à me
             contacter.
           </p>
         </motion.div>
@@ -134,7 +134,7 @@ export function ContactContent() {
                     placeholder="votre@email.com"
                     error={errors.email?.message}
                     {...register("email", {
-                      required: "L'email est requis",
+                      required: "L’email est requis",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                         message: "Email invalide",
@@ -262,7 +262,7 @@ export function ContactContent() {
             <Card className="bg-gradient-to-br from-accent/10 to-accent-secondary/10 border-accent/20">
               <p className="text-foreground-secondary text-center">
                 Je suis disponible pour des discussions sur des projets passionnants.
-                N&apos;hésitez pas à me contacter !
+                N’hésitez pas à me contacter !
               </p>
             </Card>
           </motion.div>

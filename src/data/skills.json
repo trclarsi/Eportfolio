@@ -1,0 +1,10 @@
+{
+  "soft": [
+    { "name": "Résolution de Problèmes", "icon": "Lightbulb" },
+    { "name": "Collaboration", "icon": "Users" },
+    { "name": "Communication", "icon": "MessageSquare" },
+    { "name": "Adaptabilité", "icon": "RefreshCw" },
+    { "name": "Gestion de Projet", "icon": "Kanban" },
+    { "name": "Pensée Analytique", "icon": "BarChart" }
+  ]
+}

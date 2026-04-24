@@ -16,11 +16,14 @@ export async function POST(request: Request) {
 
     if (!apiKey) {
       console.log("API key MANQUANTE sur le serveur");
-      return NextResponse.json({ 
-        success: true, 
-        message: "Message reçu",
-        debug: { apiKeyConfigured: false }
-      });
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "Le formulaire de contact n'est pas encore opérationnel. Merci de me joindre directement par email ou LinkedIn en attendant.",
+        },
+        { status: 503 }
+      );
     }
 
     console.log("API key trouvée, envoi en cours...");

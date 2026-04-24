@@ -42,22 +42,28 @@ export function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`relative flex flex-col md:flex-row gap-6 ${
+              className={`relative flex flex-col md:flex-row items-center ${
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
-              <div className="flex-1">
-                <Card className="text-left md:text-right">
-                  <div className="flex items-center gap-2 text-accent mb-2">
+              <div className={`flex-1 w-full md:w-1/2 ${
+                index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"
+              }`}>
+                <Card className="w-full">
+                  <div className={`flex items-center gap-2 text-accent mb-2 ${
+                    index % 2 === 0 ? "md:justify-end" : "md:justify-start"
+                  }`}>
                     <Calendar size={14} />
                     <span className="text-xs">{exp.period}</span>
                   </div>
                   <h3 className="text-base font-semibold mb-1">{exp.role}</h3>
                   <p className="text-sm text-foreground-secondary mb-2">{exp.company}</p>
-                  <p className="text-xs text-foreground-secondary mb-3 line-clamp-2">
+                  <p className="text-xs text-foreground-secondary mb-3 line-clamp-2 leading-relaxed">
                     {exp.description}
                   </p>
-                  <div className="flex flex-wrap gap-1">
+                  <div className={`flex flex-wrap gap-1 ${
+                    index % 2 === 0 ? "md:justify-end" : "md:justify-start"
+                  }`}>
                     {exp.technologies.slice(0, 3).map((tech) => (
                       <Badge key={tech} variant="default" className="text-xs">
                         {tech}
