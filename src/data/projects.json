@@ -38,6 +38,7 @@
       "Google Generative AI"
     ],
     "github": "https://github.com/trclarsi/rag_mairie",
+    "demo": null,
     "featured": false,
     "image": "/images/projects/rag-mairie/workflow.png",
     "gallery": []
@@ -78,6 +79,7 @@
     ],
     "github": "https://github.com/trclarsi/Pipeline_ETL_OpenWeather",
     "featured": true,
+    "demo": null,
     "image": "/images/projects/etl/screenshot1.png",
     "gallery": [
       "/images/projects/etl/screenshot1.png",
@@ -116,6 +118,7 @@
       "Minio"
     ],
     "github": "https://github.com/trclarsi/systeme_monitoring_rafinerie_cokefaction",
+    "demo": null,
     "featured": true,
     "image": "/images/projects/monitoring/architecture.png",
     "gallery": [
@@ -156,6 +159,7 @@
       "Matplotlib"
     ],
     "github": "https://github.com/trclarsi/classification_tumor_mri",
+    "demo": null,
     "featured": false,
     "image": "/images/projects/brain-tumor/tumor.png",
     "gallery": [
@@ -192,6 +196,7 @@
       "Jupyter Notebook"
     ],
     "github": "https://github.com/trclarsi/image-detection",
+    "demo": null,
     "featured": false,
     "image": "/images/projects/vehicle-detection/output entrainement.png",
     "gallery": [
@@ -231,6 +236,7 @@
       "SciPy"
     ],
     "github": "https://github.com/trclarsi/Analyse_donnee_vertigo",
+    "demo": null,
     "featured": false,
     "image": "/images/projects/marketing/data-marketing-1024x512.png",
     "gallery": [
@@ -271,8 +277,9 @@
       "Ruff",
       "Black"
     ],
-    "github": "https://github.com/trclarsi/Zandofront",
-    "github2": "https://github.com/trclarsi/Zando_",
+    "github2": "https://github.com/trclarsi/Zandofront",
+    "github": "https://github.com/trclarsi/Zando_",
+    "demo": null,
     "featured": false,
     "image": "/images/projects/zando/django-icon.svg",
     "gallery": []
@@ -314,6 +321,7 @@
     ],
     "featured": true,
     "image": "/images/projects/drone/IMG-20250920-WA0003.jpg",
+    "demo": null,
     "gallery": [
       "/images/projects/drone/IMG-20250920-WA0003.jpg",
       "/images/projects/drone/IMG-20250920-WA0004.jpg",
@@ -362,6 +370,7 @@
       "ClearML"
     ],
     "github": "https://github.com/trclarsi/SAMP",
+    "demo": null,
     "featured": true,
     "image": "/images/projects/samp/prediction.png",
     "gallery": [
