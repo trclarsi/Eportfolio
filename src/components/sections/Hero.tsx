@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { personalInfo } from "@/data/portfolio";
 
 const roles = [
-  "Ingénieur Maintenance 4.0",
+  "Ingénieur ML",
   "Ingénieur IA",
   "Ingénieur Big Data",
   "Ingénieur Généraliste",
